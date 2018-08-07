@@ -1,0 +1,16 @@
+{
+  "name": "todoListElectron",
+  "version": "1.0.0",
+  "description": "Todo list desktop application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Paolo Razon",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^2.0.6"
+  }
+}
