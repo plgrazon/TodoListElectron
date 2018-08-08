@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA Compatible" content="ie-edge">
     <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
   </head>
   <body>
-    <h1>Todo List</h1>
+    <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo center">TodoList</a>
+      </div>
+    </nav>
     <ul></ul>
 
     <script>
@@ -16,7 +21,9 @@
     const ul = document.querySelector("ul");
 
     ipcRenderer.on("item:add", (event, item) => {
+      ul.className = "collection";
       const li = document.createElement("li");
+      li.className = "collection-item";
       const itemText = document.createTextNode(item);
       li.appendChild(itemText);
       ul.appendChild(li);
@@ -24,12 +31,16 @@
 
     ipcRenderer.on("item:clear", () => {
       ul.innerHTML = "";
+      ul.innerHTML = "";
     });
 
     ul.addEventListener("dblclick", removeItem);
 
     function removeItem(event) {
       event.target.remove();
+      if (ul.children.length === 0) {
+        ul.className = "";
+      }
     }
     </script>
   </body>
